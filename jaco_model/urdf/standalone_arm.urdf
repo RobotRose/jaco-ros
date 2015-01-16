@@ -60,8 +60,9 @@
   <joint name="jaco_joint_1" type="continuous">
     <parent link="jaco_link_base"/>
     <child link="jaco_link_1"/>
-    <axis xyz="0 0 -1"/>
-    <origin rpy="3.14159265359 0 3.14159265359" xyz="0 0 0.1535"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="3.14159265359 0 0" xyz="0 0 0.1535"/>
+    <limit effort="100" velocity="50"/>
   </joint>
   <link name="jaco_link_2">
     <visual>
@@ -78,11 +79,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="jaco_joint_2" type="continuous">
+  <joint name="jaco_joint_2" type="revolute">
     <parent link="jaco_link_1"/>
     <child link="jaco_link_2"/>
     <axis xyz="0 0 1"/>
-    <origin rpy="-1.57079632679 3.14159265359 0" xyz="0 0 -0.1185"/>
+    <origin rpy="-1.57079632679 -1.57079632679 0" xyz="0 0 -0.1185"/>
+    <limit effort="100" lower="0.84" upper="5.51" velocity="50"/>
   </joint>
   <link name="jaco_link_3">
     <visual>
@@ -99,11 +101,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="jaco_joint_3" type="continuous">
+  <joint name="jaco_joint_3" type="revolute">
     <parent link="jaco_link_2"/>
     <child link="jaco_link_3"/>
-    <axis xyz="0 0 -1"/>
-    <origin rpy="3.14159265359 0 1.57079632679" xyz="0.41 0 0"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="3.14159265359 0 3.14159265359" xyz="0.41 0 0"/>
+    <limit effort="100" lower="0.34" upper="5.94" velocity="50"/>
   </joint>
   <link name="jaco_link_4">
     <visual>
@@ -123,8 +126,9 @@
   <joint name="jaco_joint_4" type="continuous">
     <parent link="jaco_link_3"/>
     <child link="jaco_link_4"/>
-    <axis xyz="0 0 -1"/>
-    <origin rpy="3.14159265359 1.57079632679 0" xyz="0.207 0 -0.01125"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="3.14159265359 -1.57079632679 3.14159265359" xyz="0.207 0 -0.01125"/>
+    <limit effort="100" velocity="50"/>
   </joint>
   <link name="jaco_link_5">
     <visual>
@@ -144,8 +148,9 @@
   <joint name="jaco_joint_5" type="continuous">
     <parent link="jaco_link_4"/>
     <child link="jaco_link_5"/>
-    <axis xyz="0 0 -1"/>
-    <origin rpy="0 -0.959931088597 0" xyz="0.0343 0 -0.06588"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0.959931088597 3.14159265359" xyz="0.0343 0 -0.06588"/>
+    <limit effort="100" velocity="50"/>
   </joint>
   <link name="jaco_link_hand">
     <visual>
@@ -165,8 +170,9 @@
   <joint name="jaco_joint_6" type="continuous">
     <parent link="jaco_link_5"/>
     <child link="jaco_link_hand"/>
-    <axis xyz="0 0 -1"/>
+    <axis xyz="0 0 1"/>
     <origin rpy="-0.959931088597 0 1.57079632679" xyz="0.0343 0 -0.06588"/>
+    <limit effort="100" velocity="50"/>
   </joint>
   <link name="jaco_link_finger_1">
     <visual>
